@@ -1,0 +1,82 @@
+@use "../../styles/resuable.style.scss" as *;
+@use "../../styles/mixins/flexMixin.scss" as *;
+@use "../../styles/mixins/breakpointsMixin.scss" as *;
+
+.home {
+    @include flex(column,center,center);
+    gap: 5rem;
+    margin-top: 5rem;
+
+    @include media(md) {
+        flex-direction: row
+    }
+
+    .heading {
+        @include flex(column,center,false);
+    
+        .title {
+            // 
+            font-size: 4rem;
+            color: $primary;
+            width: fit-content;
+            text-align: center;
+            @include media(md) {
+                max-width: 50rem;
+                font-size: 7rem;
+            }
+        }
+    
+        .info {
+            margin-top: -2rem;
+            background-color: $primary;
+            width: 30rem;
+            height: 3rem;
+            position: relative;
+            .desc {
+                @include flex(false,center,center);
+                background-color: $bluish;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: .5rem;
+                right: .5rem;
+                color: $primary;
+                font-size: 1.5rem;
+            }
+        }
+    
+        .cta {
+            margin-top: 3rem;
+            border-radius: 3rem;
+            width: 15rem;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            transition: .5s;
+            
+
+            &:hover  {
+                background-color: $bluish;
+                transform: translateY(-1rem);
+                cursor: pointer;
+                color: $primary;
+            }
+        }
+    }
+    .hero{
+        width: 90%;
+        transform: skewX(1deg);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        transition: .5s;
+        @include media(md) {
+            width: 70rem;
+        }
+        img {   
+            width: 100%;
+        }
+
+        &:hover {
+            transform: skewX(0deg);
+            box-shadow: none;
+        }
+    }
+}
